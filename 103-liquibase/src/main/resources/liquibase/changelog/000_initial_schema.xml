@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
+
+    <!--其中 id 要求全局唯一，sqlFile 表示这次变动对应的 sql 语句; 一个 <changeSet> 对应一次变更，注意每次变更完成之后，不能再修改（sql文件内容不能改），changeSet 本身也不要再去修改-->
+    <changeSet id="00000000000001" author="szh">
+        <sqlFile dbms="mysql" endDelimiter=";" encoding="UTF-8" path="liquibase/data/init_schema_221209.sql"/>
+    </changeSet>
+
+    <changeSet id="00000000000002" author="szh">
+        <sqlFile dbms="mysql" endDelimiter=";" encoding="UTF-8" path="liquibase/data/init_data_221209.sql"/>
+    </changeSet>
+
+    <changeSet id="00000000000003" author="szh">
+        <sqlFile dbms="mysql" endDelimiter=";" encoding="UTF-8" path="liquibase/data/update_schema_221210.sql"/>
+    </changeSet>
+
+</databaseChangeLog>
