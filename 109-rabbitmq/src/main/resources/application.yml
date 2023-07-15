@@ -1,0 +1,17 @@
+spring:
+  rabbitmq:
+    addresses: 192.168.88.131
+    port: 5672
+    username: szh
+    password: 123456
+    virtual-host: host1
+    # 手动确认消息
+    listener:
+      simple:
+        acknowledge-mode: manual
+    # 打开消息确认机制
+    publisher-confirm-type: correlated
+    # 打开消息返回
+    publisher-returns: true
+    template:
+      mandatory: true

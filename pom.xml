@@ -31,6 +31,8 @@
         <module>105-caffeine</module>
         <module>106-caffeine-special</module>
         <module>107-web-xml-json</module>
+        <module>108-jdbctemplate-transaction</module>
+        <module>109-rabbitmq</module>
     </modules>
 
     <dependencies>
