@@ -3,7 +3,6 @@ package com.szh.struct.controller;
 import com.szh.struct.converter.UserInfoStructMapper;
 import com.szh.struct.entity.UserInfo;
 import com.szh.struct.mapper.UserInfoMapper;
-import com.szh.struct.vo.UserInfoVO;
 import com.szh.struct.vo.UserInfoVO2;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
