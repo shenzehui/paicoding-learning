@@ -34,6 +34,7 @@
         <module>108-jdbctemplate-transaction</module>
         <module>109-rabbitmq</module>
         <module>110-mapstruct</module>
+        <module>111-spring-context-listener</module>
     </modules>
 
     <dependencies>
