@@ -44,7 +44,11 @@ public class QrLoginRest {
     private Map<String, SseEmitter> cache = new ConcurrentHashMap<>();
 
     /**
-     * 二维码生成接口
+     * 登录接口
+     * 传递三个数据：
+     * 1. redirect 跳转 url（app授权之后，跳转的页面）
+     * 2. subscribe 订阅 url（用户会访问这个 url ，开启长连接，接收服务端推送的扫码、登录事件）
+     * 3. qrcode：base64格式的二维码图片
      */
     @GetMapping(path = "/login")
     public ModelAndView qr(Map<String, Object> data, ModelAndView modelAndView) throws IOException, WriterException {
