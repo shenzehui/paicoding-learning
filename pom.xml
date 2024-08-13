@@ -35,6 +35,7 @@
         <module>109-rabbitmq</module>
         <module>110-mapstruct</module>
         <module>111-spring-context-listener</module>
+        <module>112-mybatis-interceptor</module>
     </modules>
 
     <dependencies>
