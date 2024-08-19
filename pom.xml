@@ -38,6 +38,7 @@
         <module>112-mybatis-interceptor</module>
         <module>113-sse-case</module>
         <module>114-rate-limiter</module>
+        <module>115-async-executor</module>
     </modules>
 
     <dependencies>
