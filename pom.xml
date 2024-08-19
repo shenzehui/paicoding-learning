@@ -37,6 +37,7 @@
         <module>111-spring-context-listener</module>
         <module>112-mybatis-interceptor</module>
         <module>113-sse-case</module>
+        <module>114-rate-limiter</module>
     </modules>
 
     <dependencies>
