@@ -39,6 +39,7 @@
         <module>113-sse-case</module>
         <module>114-rate-limiter</module>
         <module>115-async-executor</module>
+        <module>116-websocket</module>
     </modules>
 
     <dependencies>
