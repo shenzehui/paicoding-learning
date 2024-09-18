@@ -41,6 +41,7 @@
         <module>115-async-executor</module>
         <module>116-websocket</module>
         <module>117-websocket-chat</module>
+        <module>118-properties-bind</module>
     </modules>
 
     <dependencies>

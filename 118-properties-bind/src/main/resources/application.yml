@@ -1,0 +1,23 @@
+demo:
+  mail:
+    host: smtp.163.com
+    from: shenzehui@163.com
+    username: test
+    password: testpwd
+    port: 465
+
+  proxy:
+    - ip: 127.0.0.1
+      port: 1080
+    - ip: localhost
+      port: 1800
+  dynamic:
+    master:
+      user: main
+      password: m1
+    slave:
+      user: slave
+      password: s1
+
+  enc:
+    pwd: 5rWL6K+V5rWL6K+V
