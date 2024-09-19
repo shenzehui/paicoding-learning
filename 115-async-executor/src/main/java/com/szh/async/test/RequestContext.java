@@ -17,7 +17,7 @@ import org.apache.commons.lang3.ObjectUtils;
 @NoArgsConstructor
 public class RequestContext {
 
-    private static final ThreadLocal<RequestContext> transmittableThreadLocal = new TransmittableThreadLocal();
+    private static final ThreadLocal<RequestContext> transmittableThreadLocal = new TransmittableThreadLocal<>();
 
 
     private static final RequestContext INSTANCE = new RequestContext();
