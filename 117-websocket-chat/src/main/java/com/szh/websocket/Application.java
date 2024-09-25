@@ -26,6 +26,7 @@ public class Application {
     private SimpMessagingTemplate simpMessagingTemplate;
 
     public static void main(String[] args) {
+        // todo 未完成
         SpringApplication.run(Application.class, args);
     }
 
