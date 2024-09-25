@@ -9,8 +9,8 @@
     </parent>
     <artifactId>sse-case</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>sse-case</name>
-    <description>sse-case</description>
+    <name>113-sse-case</name>
+    <description>113-sse-case</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>

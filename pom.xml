@@ -42,6 +42,7 @@
         <module>116-websocket</module>
         <module>117-websocket-chat</module>
         <module>118-properties-bind</module>
+        <module>119-mdc-case</module>
     </modules>
 
     <dependencies>

@@ -9,8 +9,8 @@
     </parent>
     <artifactId>websocket-chat</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>websocket-chat</name>
-    <description>websocket-chat</description>
+    <name>117-websocket-chat</name>
+    <description>117-websocket-chat</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>

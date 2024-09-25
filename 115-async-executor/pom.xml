@@ -9,8 +9,8 @@
     </parent>
     <artifactId>async-executor</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>async-executor</name>
-    <description>async-executor</description>
+    <name>115-async-executor</name>
+    <description>115-async-executor</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>

@@ -9,8 +9,8 @@
     </parent>
     <artifactId>properties-bind</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>properties-bind</name>
-    <description>properties-bind</description>
+    <name>118-properties-bind</name>
+    <description>118-properties-bind</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
