@@ -13,10 +13,6 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * @author YiHui
- * @date 2022/7/6
- */
 @Slf4j
 public class IpUtil {
     private static final String UNKNOWN = "unKnown";

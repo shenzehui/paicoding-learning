@@ -1,10 +1,8 @@
 package com.szh.binder.util;
 
-import com.sun.istack.internal.NotNull;
 import com.szh.binder.pojo.DsConfig;
 import com.szh.binder.pojo.Mail;
 import com.szh.binder.pojo.Proxy;
-import lombok.NonNull;
 import org.springframework.boot.context.properties.bind.BindContext;
 import org.springframework.boot.context.properties.bind.BindHandler;
 import org.springframework.boot.context.properties.bind.Bindable;
