@@ -44,6 +44,7 @@
         <module>118-properties-bind</module>
         <module>119-mdc-case</module>
         <module>120-repeat-submit</module>
+        <module>121-async-executor-awesome</module>
     </modules>
 
     <dependencies>
