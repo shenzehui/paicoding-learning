@@ -43,6 +43,7 @@
         <module>117-websocket-chat</module>
         <module>118-properties-bind</module>
         <module>119-mdc-case</module>
+        <module>120-repeat-submit</module>
     </modules>
 
     <dependencies>

@@ -27,6 +27,11 @@ import java.util.regex.Matcher;
 
 /**
  * mybatis拦截器。输出sql执行情况
+ * <p>
+ * Executor：代表执行器，由它调度StatementHandler、ParameterHandler、ResultSetHandler等来执行对应的SQL，其中StatementHandler是最重要的。
+ * ☆ StatementHandler：作用是使用数据库的Statement（PreparedStatement）执行操作，它是四大对象的核心，起到承上启下的作用，许多重要的插件都是通过拦截它来实现的。
+ * ☆ ParameterHandler：是用来处理SQL参数的。
+ * ☆ ResultSetHandler：是进行数据集（ResultSet）的封装返回处理的，它非常的复杂，好在不常用。
  */
 @Slf4j
 @Intercepts({@Signature(type = StatementHandler.class, method = "query", args = {Statement.class, ResultHandler.class}), @Signature(type = StatementHandler.class, method = "update", args = {Statement.class})})
@@ -43,7 +48,8 @@ public class SqlStateInterceptor implements Interceptor {
             HikariProxyConnection connection = (HikariProxyConnection) ((HikariProxyPreparedStatement) invocation.getArgs()[0]).getConnection();
             uname = connection.getMetaData().getUserName();
         } else {
-
+            // todo 更多数据源列举
+            uname = "其他数据源用户";
         }
 
         Object rs;
