@@ -3,9 +3,7 @@ package com.szh.repeat.annocation;
 import java.lang.annotation.*;
 
 /**
- * Title:
- * Description:
- * Company: wondersgroup.com
+ * 自定义注解
  *
  * @author 沈泽辉
  * @version 1.0

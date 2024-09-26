@@ -28,6 +28,7 @@ public abstract class RepeatSubmitInterceptor implements HandlerInterceptor {
         if (handler instanceof HandlerMethod) {
             HandlerMethod handlerMethod = (HandlerMethod) handler;
             Method method = handlerMethod.getMethod();
+            // 拦截器实现 AOP 功能
             RepeatSubmit annotation = method.getAnnotation(RepeatSubmit.class);
             if (annotation != null) {
                 if (this.isRepeatSubmit(request, annotation)) {
