@@ -1,0 +1,9 @@
+redisson:
+  codec: org.redisson.codec.JsonJacksonCodec
+  threads: 4
+  netty:
+    threads: 4
+  single-server-config:
+    address: "redis://localhost:6379"
+    password: 240518.a
+    database: 0

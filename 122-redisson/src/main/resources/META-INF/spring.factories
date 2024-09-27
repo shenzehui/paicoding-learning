@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.szh.redisson.aspect.DistributedLockAspect,\
+com.szh.redisson.config.RedissonConfig,\
+com.szh.redisson.lock.RedissonDistributedLock
