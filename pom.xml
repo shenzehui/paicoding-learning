@@ -45,6 +45,7 @@
         <module>119-mdc-case</module>
         <module>120-repeat-submit</module>
         <module>121-async-executor-awesome</module>
+        <module>122-redisson</module>
     </modules>
 
     <dependencies>

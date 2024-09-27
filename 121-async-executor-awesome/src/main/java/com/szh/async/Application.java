@@ -2,6 +2,7 @@ package com.szh.async;
 
 import com.szh.async.factory.AsyncFactory;
 import com.szh.async.manager.AsyncManager;
+import com.szh.redisson.annoation.EnableDistributedLock;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
@@ -17,6 +18,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 
 @SpringBootApplication
+// 启用分布式注解
+@EnableDistributedLock
 public class Application implements ApplicationRunner {
 
     public static void main(String[] args) {
