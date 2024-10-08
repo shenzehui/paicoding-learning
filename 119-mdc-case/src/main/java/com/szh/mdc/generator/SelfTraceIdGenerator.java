@@ -90,4 +90,9 @@ public class SelfTraceIdGenerator {
         return String.format("%05d", Integer.parseInt(processId));
     }
 
+    public static void main(String[] args) {
+        String traceId = SelfTraceIdGenerator.generate();
+        System.out.println(traceId);
+    }
+
 }
