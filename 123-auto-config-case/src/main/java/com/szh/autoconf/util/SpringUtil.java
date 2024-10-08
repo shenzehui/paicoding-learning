@@ -31,6 +31,10 @@ public class SpringUtil implements ApplicationContextAware, EnvironmentAware {
         return context;
     }
 
+    public static Environment getEnvironment() {
+        return environment;
+    }
+
     /**
      * 获取bean
      *
