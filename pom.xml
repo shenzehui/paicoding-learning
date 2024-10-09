@@ -47,6 +47,7 @@
         <module>121-async-executor-awesome</module>
         <module>122-redisson</module>
         <module>123-auto-config-case</module>
+        <module>124-webflux</module>
     </modules>
 
     <dependencies>
