@@ -17,7 +17,7 @@ public class TransmittableThreadLocalCase2 {
   
   // 为达到线程100%复用便于测试，线程池核心数1
   
-//  private static final Executor TTL_EXECUTOR = TtlExecutors.getTtlExecutor(new ThreadPoolExecutor(1, 1, 1000, TimeUnit.MICROSECONDS, new LinkedBlockingQueue<>(1000)));
+  //  private static final Executor TTL_EXECUTOR = TtlExecutors.getTtlExecutor(new ThreadPoolExecutor(1, 1, 1000, TimeUnit.MICROSECONDS, new LinkedBlockingQueue<>(1000)));
   private static final Executor TTL_EXECUTOR = new ThreadPoolExecutor(1, 1, 1000, TimeUnit.MICROSECONDS, new LinkedBlockingQueue<>(1000));
 
   // 如果使用一般的线程池或者Runnable\Callable时，会存在线程“污染”，比如线程池中线程会复用，复用的线程会“污染”该线程执行下一次任务

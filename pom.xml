@@ -48,6 +48,7 @@
         <module>122-redisson</module>
         <module>123-auto-config-case</module>
         <module>124-webflux</module>
+        <module>125-sensitive</module>
     </modules>
 
     <dependencies>
