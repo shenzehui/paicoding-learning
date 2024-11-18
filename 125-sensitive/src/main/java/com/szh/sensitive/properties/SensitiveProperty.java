@@ -10,7 +10,7 @@ import java.util.List;
 @Component
 @ConfigurationProperties(prefix = SensitiveProperty.SENSITIVE_KEY_PREFIX)
 public class SensitiveProperty {
-    public static final String SENSITIVE_KEY_PREFIX = "paicoding.sensitive";
+    public static final String SENSITIVE_KEY_PREFIX = "application.sensitive";
     /**
      * true 表示开启敏感词校验
      */
