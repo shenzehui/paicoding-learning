@@ -67,6 +67,36 @@ public class Step2 {
     }
 
     /**
+     * StopWatch目前存在的问题：1. 前后耗时不会记录 2. 多线程下会报错
+     */
+    @Test
+    public void testCostError() {
+        StopWatch stopWatch = new StopWatch("测试耗时");
+        // 注意这里的第一个randSleep的耗时，不会被记录再StopWatch中
+        randSleep(300);
+
+        new Thread(() -> {
+            stopWatch.start("task1");
+            randSleep(100);
+            stopWatch.stop();
+        }).start();
+
+
+        new Thread(() -> {
+            stopWatch.start("task2");
+            randSleep(30);
+            stopWatch.stop();
+        }).start();
+
+
+        stopWatch.start("task3");
+        randSleep(50);
+        stopWatch.stop();
+
+        System.out.println(stopWatch.prettyPrint());
+    }
+
+    /**
      * 一个简单的封装，减少冗余代码对业务代码的侵入
      */
     public static class StopWatchWrapper implements Closeable {
