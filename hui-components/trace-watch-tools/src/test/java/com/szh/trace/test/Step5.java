@@ -1,6 +1,9 @@
 package com.szh.trace.test;
 
+import com.alibaba.ttl.TransmittableThreadLocal;
+import com.alibaba.ttl.threadpool.TtlExecutors;
 import com.szh.trace.async.AsyncUtil;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.Closeable;
@@ -8,10 +11,7 @@ import java.text.NumberFormat;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ConcurrentSkipListMap;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.ExecutorService;
+import java.util.concurrent.*;
 import java.util.function.Supplier;
 
 /**
@@ -57,7 +57,7 @@ public class Step5 {
             // 支持排序的耗时记录
             cost = new ConcurrentSkipListMap<>();
             start(task);
-            this.executorService = executorService;
+            this.executorService = TtlExecutors.getTtlExecutorService(executorService);
             this.markExecuteOver = false;
         }
 
@@ -274,6 +274,151 @@ public class Step5 {
             System.out.println("打印f2的结果 -> " + f2.join());
         }
     }
-    // end
 
+    private void sleep(int max) {
+        try {
+            Thread.sleep(random.nextInt(max));
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+//    private ThreadLocal<String> local = new InheritableThreadLocal<>();
+
+    /**
+     * InheritableThreadLocal 存在的问题：在线程池异步执行的场景下可能出现共享异常
+     *
+     * @throws InterruptedException
+     */
+    @Test
+    public void testConcurrent() throws InterruptedException {
+        // 外部链路执行线程池
+        ExecutorService executorService = Executors.newFixedThreadPool(2);
+
+        // TraceRecoder的异步线程池
+        ExecutorService traceExecutors = Executors.newFixedThreadPool(2);
+
+        executorService.submit(() -> {
+            local.set("t1");
+            try (TraceRecorder recorder = new TraceRecorder(traceExecutors, "t1")) {
+                recorder.async(() -> {
+                    sleep(10);
+                    System.out.println("1-1 上下文:" + Thread.currentThread().getName() + "_" + local.get());
+                }, "1-1");
+                recorder.async(() -> {
+                    sleep(10);
+                    System.out.println("1-2 上下文:" + Thread.currentThread().getName() + "_" + local.get());
+                }, "1-2");
+                recorder.async(() -> {
+                    sleep(100);
+                    System.out.println("1-3 上下文:" + Thread.currentThread().getName() + "_" + local.get());
+                }, "1-3");
+                recorder.sync(() -> sleep(200), "1-4同步");
+            } finally {
+                local.remove();
+            }
+        });
+        executorService.submit(() -> {
+            local.set("t2");
+            try (TraceRecorder recorder = new TraceRecorder(traceExecutors, "t2")) {
+                recorder.async(() -> {
+                    sleep(100);
+                    System.out.println("2-1 上下文:" + Thread.currentThread().getName() + "_" + local.get());
+                }, "2-1");
+                recorder.async(() -> {
+                    sleep(100);
+                    System.out.println("2-2 上下文:" + Thread.currentThread().getName() + "_" + local.get());
+                }, "2-2");
+                recorder.async(() -> {
+                    sleep(100);
+                    System.out.println("2-3 上下文:" + Thread.currentThread().getName() + "_" + local.get());
+                }, "2-3");
+
+                recorder.sync(() -> sleep(200), "2-4同步");
+            } finally {
+                local.remove();
+            }
+        });
+
+        Thread.sleep(3000);
+    }
+
+
+    /**
+     * 解决：
+     * 1. 改造异步工具类，包装一下线程池，避免出现上下文复用场景
+     * 2. 接着对用户传递线程池进行保护  this.executorService = TtlExecutors.getTtlExecutorService(executorService);
+     * 3. 使用TransmittableThreadLocal上下文
+     */
+    private ThreadLocal<String> local = new TransmittableThreadLocal<>();
+
+    private boolean testConcurrentV2() throws InterruptedException {
+        // 外部链路执行线程池
+        ExecutorService executorService = Executors.newFixedThreadPool(2);
+
+        // TraceRecoder的异步线程池
+        ExecutorService traceExecutors = AsyncUtil.initExecutorService(2, 2);
+
+        Future f1 = executorService.submit(() -> {
+            local.set("t1");
+            try (TraceRecorder recorder = new TraceRecorder(traceExecutors, "t1")) {
+                recorder.async(() -> {
+                    sleep(10);
+                    // 这里判断判断下线程共享是否异常，有异常直接报错
+                    Assert.assertTrue("t1上下文获取异常", "t1".equals(local.get()));
+                }, "1-1");
+                recorder.async(() -> {
+                    sleep(10);
+                    Assert.assertTrue("t1上下文获取异常", "t1".equals(local.get()));
+                }, "1-2");
+                recorder.async(() -> {
+                    sleep(100);
+                    Assert.assertTrue("t1上下文获取异常", "t1".equals(local.get()));
+                }, "1-3");
+                recorder.sync(() -> sleep(200), "1-4同步");
+            } finally {
+                local.remove();
+            }
+        });
+        Future f2 = executorService.submit(() -> {
+            local.set("t2");
+            try (TraceRecorder recorder = new TraceRecorder(traceExecutors, "t2")) {
+                recorder.async(() -> {
+                    sleep(100);
+                    Assert.assertTrue("t2上下文获取异常", "t2".equals(local.get()));
+                }, "2-1");
+                recorder.async(() -> {
+                    sleep(100);
+                    Assert.assertTrue("t2上下文获取异常", "t2".equals(local.get()));
+                }, "2-2");
+                recorder.async(() -> {
+                    sleep(100);
+                    Assert.assertTrue("t2上下文获取异常", "t2".equals(local.get()));
+                }, "2-3");
+
+                recorder.sync(() -> sleep(200), "2-4同步");
+            } finally {
+                local.remove();
+            }
+        });
+
+        Thread.sleep(1000);
+        return true;
+    }
+
+    /**
+     * 直接循环暴力测试
+     * 执行后，很明显，全部通过！
+     *
+     * @throws InterruptedException
+     */
+    @Test
+    public void testCon() throws InterruptedException {
+        for (int i = 0; i < 100; i++) {
+            testConcurrentV2();
+        }
+        System.out.println("全部通过!");
+        Thread.sleep(3000);
+    }
+    // end
 }
