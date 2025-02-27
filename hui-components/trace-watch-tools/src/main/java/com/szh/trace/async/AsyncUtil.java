@@ -14,7 +14,7 @@ public class AsyncUtil {
     public static ExecutorService executorService;
 
     static {
-        initExecutorService(Runtime.getRuntime().availableProcessors() * 2, 50);
+        executorService = initExecutorService(Runtime.getRuntime().availableProcessors() * 2, 50);
     }
 
     public static ExecutorService initExecutorService(int core, int max) {
