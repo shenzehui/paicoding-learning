@@ -1,0 +1,3 @@
+# Auto Configure  注：Springboot自动装配
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.szh.trace.SpringTraceDogConfiguration

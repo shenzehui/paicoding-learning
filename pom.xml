@@ -49,6 +49,7 @@
         <module>123-auto-config-case</module>
         <module>124-webflux</module>
         <module>125-sensitive</module>
+        <module>126-ai-awesome</module>
     </modules>
 
     <dependencies>
