@@ -29,4 +29,14 @@ public @interface TraceDog {
      */
     boolean async() default false;
 
+    /**
+     * 是否打印日志 与 logSpeEL 配合使用
+     *
+     * @return true 可打印日志
+     */
+    boolean logEnable() default true;
+
+
+    String logSpEL() default "";
+
 }

@@ -7,11 +7,28 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.expression.BeanFactoryResolver;
+import org.springframework.expression.ExpressionParser;
+import org.springframework.expression.spel.standard.SpelExpressionParser;
+import org.springframework.expression.spel.support.StandardEvaluationContext;
 
 import java.util.concurrent.CompletableFuture;
 
 @Aspect
-public class TraceAspect {
+public class TraceAspect implements ApplicationContextAware {
+
+    private ApplicationContext applicationContext;
+
+    private ExpressionParser parser;
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
+        this.parser = new SpelExpressionParser();
+    }
 
 
     @Around("@annotation(traceDog)")
@@ -23,7 +40,7 @@ public class TraceAspect {
         MethodSignature methodSignature = ((MethodSignature) joinPoint.getSignature());
         if (traceDog.propagation() == Propagation.REQUIRED && TraceWatch.getRecoder() == null) {
             // 入口点，开启trace耗时记录
-            try (ITraceRecoder ignored = TraceWatch.startTrace(genTraceName(methodSignature, traceDog))) {
+            try (ITraceRecoder ignored = TraceWatch.startTrace(genTraceName(methodSignature, traceDog), buildLogCondition(joinPoint, traceDog))) {
                 return executed(joinPoint);
             }
         }
@@ -73,4 +90,25 @@ public class TraceAspect {
             throw new RuntimeException(e);
         }
     }
+
+    private Boolean buildLogCondition(ProceedingJoinPoint joinPoint, TraceDog dog) {
+        if (!dog.logEnable()) {
+            return false;
+        }
+        if (dog.logSpEL() == null || dog.logSpEL().isEmpty()) {
+            return true;
+        }
+        StandardEvaluationContext context = new StandardEvaluationContext();
+        context.setBeanResolver(new BeanFactoryResolver(applicationContext));
+
+        // 将请求参数也作为上下文参数
+        MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+        String[] parameterNames = methodSignature.getParameterNames();
+        Object[] args = joinPoint.getArgs();
+        for (int i = 0; i < parameterNames.length; i++) {
+            context.setVariable(parameterNames[i], args[i]);
+        }
+        return (Boolean) parser.parseExpression(dog.logSpEL()).getValue(context);
+    }
+
 }

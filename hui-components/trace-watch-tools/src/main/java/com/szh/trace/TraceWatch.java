@@ -2,12 +2,15 @@ package com.szh.trace;
 
 import com.alibaba.ttl.TransmittableThreadLocal;
 import com.szh.trace.async.AsyncUtil;
+import com.szh.trace.output.CostOutput;
+import com.szh.trace.output.LogOutput;
 import com.szh.trace.recoder.DefaultTraceRecoder;
 import com.szh.trace.recoder.ITraceRecoder;
 import com.szh.trace.recoder.SyncTraceRecoder;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.ExecutorService;
-import java.util.function.Supplier;
 
 /**
  * 统一访问姿势实现，门面
@@ -16,19 +19,44 @@ public class TraceWatch {
 
     private static final ThreadLocal<ITraceRecoder> THREAD_LOCAL = new TransmittableThreadLocal<>();
 
+    private static Set<CostOutput> globalOutputStrategy;
+
+    static {
+        globalOutputStrategy = new HashSet<>();
+        globalOutputStrategy.add(LogOutput.defaultLogOutput);
+    }
+
+    /**
+     * 注册全局的输出重定向规则
+     *
+     * @param output
+     */
+    public static void registerOutput(CostOutput output) {
+        globalOutputStrategy.add(output);
+    }
+
+    /**
+     * 获取默认的全局输出重定向策略
+     *
+     * @return
+     */
+    public static Set<CostOutput> getGlobalOutputStrategy() {
+        return globalOutputStrategy;
+    }
+
     public static ITraceRecoder startTrace(String name) {
-        return startTrace(name, () -> true);
+        return startTrace(name, true);
     }
 
     /**
      * 带条件的开启trace记录
      *
      * @param name
-     * @param condition
+     * @param logEnable
      * @return
      */
-    public static ITraceRecoder startTrace(String name, Supplier<Boolean> condition) {
-        return startTrace(AsyncUtil.executorService, name, condition);
+    public static ITraceRecoder startTrace(String name, boolean logEnable) {
+        return startTrace(AsyncUtil.executorService, name, logEnable);
     }
 
     /**
@@ -36,16 +64,13 @@ public class TraceWatch {
      *
      * @param executorService
      * @param name
-     * @param condition
+     * @param logEnable
      * @return
      */
-    public static ITraceRecoder startTrace(ExecutorService executorService, String name, Supplier<Boolean> condition) {
-        if (condition.get()) {
-            DefaultTraceRecoder bridge = new DefaultTraceRecoder(executorService, name).setEndHook(TraceWatch::endTrace);
-            THREAD_LOCAL.set(bridge);
-            return bridge;
-        }
-        return null;
+    public static ITraceRecoder startTrace(ExecutorService executorService, String name, Boolean logEnable) {
+        DefaultTraceRecoder bridge = new DefaultTraceRecoder(executorService, name, logEnable).setEndHook(TraceWatch::endTrace);
+        THREAD_LOCAL.set(bridge);
+        return bridge;
     }
 
     /**
