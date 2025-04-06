@@ -10,7 +10,7 @@ import org.springframework.boot.web.embedded.tomcat.TomcatConnectorCustomizer;
 import org.springframework.context.annotation.Bean;
 
 /**
- * @author ASUS
+ * @author shenzehui
  */
 @SpringBootApplication
 @Slf4j

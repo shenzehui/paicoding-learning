@@ -5,7 +5,7 @@ import com.szh.sensitive.entity.UserInfo;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
- * @author ASUS
+ * @author shenzehui
  * @description 针对表【user_info】的数据库操作Mapper
  * @createDate 2024-08-12 17:22:49
  * @Entity com/szh/struct.entity.UserInfo
