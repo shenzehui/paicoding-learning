@@ -1,0 +1,10 @@
+server:
+  port: 8080
+
+local:
+  breaker:
+    setting:
+      breaker:
+        breaker-error-percentage: 60
+        enabled: true
+        window-in-times: 10
