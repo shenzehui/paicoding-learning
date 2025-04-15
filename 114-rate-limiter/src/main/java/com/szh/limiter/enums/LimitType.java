@@ -3,7 +3,7 @@ package com.szh.limiter.enums;
 /**
  * 限流类型
  *
- * @author canghe
+ * @author shenzehui
  */
 
 public enum LimitType {

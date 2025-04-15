@@ -16,7 +16,7 @@ import org.springframework.scripting.support.ResourceScriptSource;
 /**
  * redis配置
  *
- * @author canghe
+ * @author shenzehui
  */
 @Configuration
 @EnableCaching
