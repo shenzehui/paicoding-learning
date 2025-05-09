@@ -133,6 +133,7 @@ public class LocalBreakerState {
         POOL.execute(() -> {
             try {
                 // 由于计数器停止计数，这里理论不会进入true，
+                // 若计数器变为零了，则返回 true；若指定的等待时间过去了，则返回 false
                 boolean flag = allCount.await(breaker.getBreakerSleep().getSeconds(), TimeUnit.SECONDS);
                 if (flag) {
                     log.error("[" + ErrorCode.LOCAL_BREAK + "]计数器变更导致断开恢复，但不正常！恢复计数器");
