@@ -51,6 +51,7 @@
         <module>125-sensitive</module>
         <module>126-ai-awesome</module>
         <module>127-local-breaker-component</module>
+        <module>128-delay-task</module>
         <module>129-logback-integration</module>
     </modules>
 
