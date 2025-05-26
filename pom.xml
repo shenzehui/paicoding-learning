@@ -53,6 +53,7 @@
         <module>127-local-breaker-component</module>
         <module>128-delay-task</module>
         <module>129-logback-integration</module>
+        <module>130-single-spring</module>
     </modules>
 
     <dependencies>
