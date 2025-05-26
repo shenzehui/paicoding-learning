@@ -1,8 +1,10 @@
 package com.szh;
 
 import com.szh.dao.UserDao;
+import com.szh.lifeCycle.PersonBean;
 import com.szh.spring.BeanFactory;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * Unit test for simple App.
@@ -21,6 +23,18 @@ public class AppTest {
         //3.第⼆次获取bean（从缓存中获取bean）
         UserDao userDao1 = (UserDao) beanFactory.getBean("userDao");
         userDao1.queryUserInfo();
+    }
+
+    /**
+     * 测试Bean生命周期
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
+        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-config.xml");
+        PersonBean personBean = (PersonBean) applicationContext.getBean("personBean");
+        personBean.work();
+        applicationContext.destroy();
     }
 
 }
