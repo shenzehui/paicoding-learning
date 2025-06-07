@@ -1,0 +1,111 @@
+package com.szh.algorithm;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class BinaryTreePaths {
+
+    public static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+
+        TreeNode() {
+        }
+
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+
+    /**
+     * 257. 二叉树的所有路径
+     *
+     * @param root
+     * @return
+     */
+    public List<String> binaryTreePaths(TreeNode root) {
+        List<Integer> path = new ArrayList<>();
+        List<String> res = new ArrayList<>();
+        recursion(root, path, res);
+        return res;
+    }
+
+
+    /**
+     * 递归，针对每一次递归，进行一次回溯
+     *
+     * @param root
+     * @param path
+     * @param res
+     */
+    public void recursion(TreeNode root, List<Integer> path, List<String> res) {
+        // 中
+        path.add(root.val);
+        // 终止条件
+        if (root.left == null && root.right == null) {
+            StringBuilder stringBuilder = new StringBuilder();
+            for (int i = 0; i < path.size() - 1; i++) {
+                stringBuilder.append(path.get(i)).append("->");
+            }
+            stringBuilder.append(path.get(path.size() - 1)); // 最后一个
+            res.add(stringBuilder.toString());
+            return;
+        }
+
+        // 左
+        if (root.left != null) {
+            recursion(root.left, path, res);
+            // 回溯
+            path.remove(path.size() - 1);
+
+        }
+        // 右
+        if (root.right != null) {
+            recursion(root.right, path, res);
+            // 回溯
+            path.remove(path.size() - 1);
+        }
+    }
+
+
+    List<String> result = new ArrayList<>();
+
+    public List<String> binaryTreePaths1(TreeNode root) {
+        deal(root, "");
+        return result;
+    }
+
+    /**
+     * 递归 精简写法，难理解
+     *
+     * @param node
+     * @param s
+     */
+    public void deal(TreeNode node, String s) {
+        if (node == null)
+            return;
+        if (node.left == null && node.right == null) {
+            result.add(new StringBuilder(s).append(node.val).toString());
+            return;
+        }
+        String tmp = new StringBuilder(s).append(node.val).append("->").toString();  // 这里隐藏了回溯，没有对字符串S进行修改
+        deal(node.left, tmp);
+        deal(node.right, tmp);
+    }
+
+    public static void main(String[] args) {
+        BinaryTreePaths binaryTreePaths = new BinaryTreePaths();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.right = new TreeNode(5);
+        System.out.println(binaryTreePaths.binaryTreePaths1(root));
+    }
+}
