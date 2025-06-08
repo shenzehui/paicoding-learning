@@ -55,6 +55,7 @@
         <module>129-logback-integration</module>
         <module>130-single-spring</module>
         <module>131-dynamic-proxy</module>
+        <module>132-dubbo</module>
     </modules>
 
     <dependencies>
@@ -77,6 +78,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-bom</artifactId>
+            <version>3.3.0</version>
+            <type>pom</type>
+            <scope>import</scope>
         </dependency>
     </dependencies>
 
