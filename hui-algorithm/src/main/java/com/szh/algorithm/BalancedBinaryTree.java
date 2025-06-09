@@ -44,11 +44,13 @@ public class BalancedBinaryTree {
         }
         // 左
         int leftHeight = getHeight(root.left);
+        // 终止条件，提前终止
         if (leftHeight == -1) {
             return -1;
         }
         // 右
         int rightHeight = getHeight(root.right);
+        // 终止条件，提前终止
         if (rightHeight == -1) {
             return -1;
         }
