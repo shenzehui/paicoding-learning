@@ -1,13 +1,11 @@
-package com.szh.algorithm;
+package com.szh.algorithm.arrays;
 
+/**
+ * 螺旋矩阵 II
+ *
+ * @author szh
+ */
 public class GenerateMatrix {
-
-    /**
-     * 循环矩阵
-     *
-     * @param n
-     * @return
-     */
     public int[][] generateMatrix(int n) {
         int startX = 0;
         int startY = 0;  // 每一圈的起始位置

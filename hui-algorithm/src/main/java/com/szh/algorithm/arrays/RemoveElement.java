@@ -1,5 +1,10 @@
-package com.szh.algorithm;
+package com.szh.algorithm.arrays;
 
+/**
+ * 移除元素
+ *
+ * @author szh
+ */
 public class RemoveElement {
     public int removeElement(int[] nums, int val) {
         int size = nums.length;

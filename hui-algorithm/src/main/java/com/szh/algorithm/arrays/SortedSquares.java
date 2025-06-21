@@ -1,5 +1,10 @@
-package com.szh.algorithm;
+package com.szh.algorithm.arrays;
 
+/**
+ * 977. 有序数组的平方
+ * <p>
+ * 双指针法，数组两端的数组永远是最大的一个，所以从两端开始向中间移动，将平方后的值放入结果数组中
+ */
 public class SortedSquares {
     public int[] sortedSquares(int[] nums) {
         int[] result = new int[nums.length];

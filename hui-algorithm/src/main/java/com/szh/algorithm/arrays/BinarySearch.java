@@ -1,13 +1,12 @@
-package com.szh.algorithm;
+package com.szh.algorithm.arrays;
 
+/**
+ * 二分查找
+ *
+ * @author szh
+ */
 public class BinarySearch {
-    /**
-     * 二分查找
-     *
-     * @param nums
-     * @param target
-     * @return
-     */
+
     public static int search(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1;
