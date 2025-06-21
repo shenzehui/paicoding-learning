@@ -1,24 +1,12 @@
-package com.szh.algorithm;
+package com.szh.algorithm.linkedList;
 
+/**
+ * 环形链表 II
+ */
 public class DetectCycle {
 
-    class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-    }
-
     /**
-     * 环形链表
-     *
-     * @param head
-     * @return
+     * 快慢指针
      */
     public ListNode detectCycle(ListNode head) {
         ListNode dumyHead = new ListNode();

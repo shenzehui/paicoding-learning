@@ -1,21 +1,15 @@
-package com.szh.algorithm;
+package com.szh.algorithm.linkedList;
 
+/**
+ * 设计链表
+ */
 public class DesignLinkedList {
-
-    class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int val) {
-            this.val = val;
-        }
-    }
 
     int size;
 
     ListNode head;
 
-    public void MyLinkedList() {
+    public DesignLinkedList() {
         this.size = 0;
         head = new ListNode(0);
     }

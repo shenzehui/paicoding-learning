@@ -1,25 +1,9 @@
-package com.szh.algorithm;
+package com.szh.algorithm.linkedList;
 
+/**
+ * 删除链表中等于给定值 val 的所有节点。
+ */
 public class RemoveElements {
-
-    public static class ListNode {
-
-        int val;
-
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
 
     /**
      * 删除链表中等于给定值 val 的所有节点。

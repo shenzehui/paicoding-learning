@@ -1,4 +1,4 @@
-package com.szh.algorithm;
+package com.szh.algorithm.linkedList;
 
 import java.util.HashMap;
 import java.util.Map;

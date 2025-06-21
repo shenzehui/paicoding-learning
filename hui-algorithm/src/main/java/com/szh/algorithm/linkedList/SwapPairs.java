@@ -1,33 +1,10 @@
-package com.szh.algorithm;
+package com.szh.algorithm.linkedList;
 
+/**
+ * 两两交换链表中的节点
+ */
 public class SwapPairs {
 
-    class ListNode {
-
-        int val;
-
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-    }
-
-    int size;
-
-    ListNode head;
-
-    public void MyLinkedList() {
-        this.size = 0;
-        head = new ListNode(0);
-    }
-
-    /**
-     * 两两交换链表中的节点
-     */
     public ListNode swapPairs(ListNode head) {
         ListNode dumyHead = new ListNode();
         dumyHead.next = head;
