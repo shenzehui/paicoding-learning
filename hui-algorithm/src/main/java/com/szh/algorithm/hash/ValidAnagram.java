@@ -1,5 +1,10 @@
-package com.szh.algorithm;
+package com.szh.algorithm.hash;
 
+/**
+ * 242. 有效的字母异位词
+ *
+ * @author szh
+ */
 public class ValidAnagram {
 
     /**

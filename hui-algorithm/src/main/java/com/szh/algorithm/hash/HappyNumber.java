@@ -1,15 +1,14 @@
-package com.szh.algorithm;
+package com.szh.algorithm.hash;
 
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * 快乐数
+ *
+ * @author szh
+ */
 public class HappyNumber {
-    /**
-     * 快乐数
-     *
-     * @param n
-     * @return
-     */
     public boolean isHappy(int n) {
         Set<Integer> set = new HashSet<>();
         int temp = n;

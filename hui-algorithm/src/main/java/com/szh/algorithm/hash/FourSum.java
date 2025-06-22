@@ -1,27 +1,15 @@
-package com.szh.algorithm;
+package com.szh.algorithm.hash;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 /**
- * Title:
- * Description:
- * Company: wondersgroup.com
- *
- * @author 沈泽辉
- * @version 1.0
+ * 四数之和
  */
 
 public class FourSum {
 
-    /**
-     * 四数之和
-     *
-     * @param nums
-     * @param target
-     * @return
-     */
     public List<List<Integer>> fourSum(int[] nums, int target) {
         Arrays.sort(nums);
         List<List<Integer>> res = new ArrayList<>();

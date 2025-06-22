@@ -1,22 +1,14 @@
-package com.szh.algorithm;
+package com.szh.algorithm.hash;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
- * Title:
- * Description:
- * Company: wondersgroup.com
- *
- * @author 沈泽辉
- * @version 1.0
+ * 三数之和
  */
-
 public class ThreeSum {
 
     /**
-     * 三数之和（双指针法）
+     * 双指针法
      *
      * @param nums
      * @return
