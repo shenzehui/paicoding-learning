@@ -1,12 +1,17 @@
 package com.szh.algorithm.linkedList;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * 重排链表
  */
 public class ReorderList {
+
+    /**
+     * 数组模拟
+     *
+     * @param head
+     */
     public void reorderList(ListNode head) {
         List<ListNode> list = new ArrayList<>();
 
@@ -36,5 +41,30 @@ public class ReorderList {
             cur = cur.next;
         }
         cur.next = null;
+    }
+
+
+    /**
+     * 双向链表
+     */
+    public void reorderList1(ListNode head) {
+        Deque<ListNode> queue = new ArrayDeque<>();
+
+        ListNode cur = head;
+        while (cur != null) {
+            queue.addLast(cur);
+            cur = cur.next;
+        }
+
+        cur = head;
+
+        while (!queue.isEmpty()) {
+            cur.next = queue.pollFirst();
+            cur = cur.next;
+            if (!queue.isEmpty()) {
+                cur.next = queue.pollLast();
+                cur = cur.next;
+            }
+        }
     }
 }
