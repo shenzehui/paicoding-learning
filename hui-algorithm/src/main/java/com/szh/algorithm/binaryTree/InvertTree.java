@@ -1,4 +1,4 @@
-package com.szh.algorithm;
+package com.szh.algorithm.binaryTree;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -28,6 +28,9 @@ public class InvertTree {
 
     /**
      * 翻转二叉树（前序）
+     * <p>
+     * 前序和后序都可以，中序不行，遍历到中节点交换后，右孩子节点以及变成左节点了，
+     * 再右孩子交换孩子（此时其实是对原来的左孩子做交换），相当于没有交换。
      *
      * @param root
      * @return
@@ -51,7 +54,7 @@ public class InvertTree {
 
 
     /**
-     * BFS
+     * BFS 层序遍历
      *
      * @param root
      * @return

@@ -1,5 +1,8 @@
-package com.szh.algorithm;
+package com.szh.algorithm.binaryTree;
 
+/**
+ * 104. 二叉树的最大深度
+ */
 public class MaxDepth {
 
     // Definition for a binary tree node.

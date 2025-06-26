@@ -1,5 +1,7 @@
 package com.szh.algorithm.arrays;
 
+import java.util.Arrays;
+
 /**
  * 977. 有序数组的平方
  * <p>
@@ -29,6 +31,22 @@ public class SortedSquares {
         //     result[nums.length - 1 -i] = temp;
         // }
         return result;
+    }
+
+    /**
+     * 暴力解法
+     */
+    public int[] sortedSquares1(int[] nums) {
+        int[] result = new int[nums.length];
+
+        for (int i = 0; i < nums.length; i++) {
+            result[i] = nums[i] * nums[i];
+        }
+
+        Arrays.sort(result);
+
+        return result;
+
     }
 
     public static void main(String[] args) {

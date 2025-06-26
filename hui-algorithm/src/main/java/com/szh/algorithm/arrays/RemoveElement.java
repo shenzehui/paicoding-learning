@@ -6,6 +6,10 @@ package com.szh.algorithm.arrays;
  * @author szh
  */
 public class RemoveElement {
+
+    /**
+     * 暴搜
+     */
     public int removeElement(int[] nums, int val) {
         int size = nums.length;
         for (int i = 0; i < size; i++) {

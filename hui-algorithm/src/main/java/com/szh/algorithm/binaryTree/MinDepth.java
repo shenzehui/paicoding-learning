@@ -1,8 +1,11 @@
-package com.szh.algorithm;
+package com.szh.algorithm.binaryTree;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
 
+/**
+ * 111. 二叉树的最小深度
+ */
 public class MinDepth {
 
     public class TreeNode {
