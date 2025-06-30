@@ -1,14 +1,10 @@
-package com.szh.algorithm;
+package com.szh.algorithm.string;
 
 /**
- * Title:
- * Description:
- * Company: wondersgroup.com
+ * 翻转字符串里的单词
  *
- * @author 沈泽辉
- * @version 1.0
+ * @author szh
  */
-
 public class ReverseWords {
 
     public String reverseWords(String s) {
@@ -24,6 +20,7 @@ public class ReverseWords {
 
     /**
      * 移除空格
+     *
      * @param s
      * @return
      */

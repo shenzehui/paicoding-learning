@@ -1,33 +1,18 @@
 package com.szh.algorithm.binaryTree;
 
+import com.szh.algorithm.TreeNode;
+
 import java.util.ArrayDeque;
 import java.util.Deque;
 
+/**
+ * 226.翻转二叉树
+ */
 public class InvertTree {
-
-    // Definition for a binary tree node.
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
 
 
     /**
-     * 翻转二叉树（前序）
+     * 前序遍历
      * <p>
      * 前序和后序都可以，中序不行，遍历到中节点交换后，右孩子节点以及变成左节点了，
      * 再右孩子交换孩子（此时其实是对原来的左孩子做交换），相当于没有交换。

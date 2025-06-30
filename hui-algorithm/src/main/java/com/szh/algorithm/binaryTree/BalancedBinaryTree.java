@@ -1,25 +1,11 @@
-package com.szh.algorithm;
+package com.szh.algorithm.binaryTree;
 
+import com.szh.algorithm.TreeNode;
+
+/**
+ * 110. 平衡二叉树
+ */
 public class BalancedBinaryTree {
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode() {
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
 
     /**
      * 是否为平衡二叉树
@@ -33,6 +19,8 @@ public class BalancedBinaryTree {
 
     /**
      * 递归
+     * <p>
+     * -1 表示已经不是平衡二叉树了，否则返回值是以该节点为根节点树的高度
      *
      * @param root
      * @return
