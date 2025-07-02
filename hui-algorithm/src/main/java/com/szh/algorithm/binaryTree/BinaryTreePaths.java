@@ -1,35 +1,16 @@
-package com.szh.algorithm;
+package com.szh.algorithm.binaryTree;
+
+import com.szh.algorithm.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
+/**
+ * 257. 二叉树的所有路径
+ */
 public class BinaryTreePaths {
 
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode() {
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
-
-    /**
-     * 257. 二叉树的所有路径
-     *
-     * @param root
-     * @return
-     */
     public List<String> binaryTreePaths(TreeNode root) {
         List<Integer> path = new ArrayList<>();
         List<String> res = new ArrayList<>();
@@ -98,6 +79,44 @@ public class BinaryTreePaths {
         String tmp = new StringBuilder(s).append(node.val).append("->").toString();  // 这里隐藏了回溯，没有对字符串S进行修改
         deal(node.left, tmp);
         deal(node.right, tmp);
+    }
+
+    /**
+     * 迭代，利用栈模拟
+     */
+    public List<String> binaryTreePaths2(TreeNode root) {
+        List<String> res = new ArrayList<>();
+        Stack<Object> stack = new Stack<>();
+        if (root == null) {
+            return res;
+        }
+        // 节点和路径同时入栈   节点用于判断是否是叶子节点，路径是为了收集结果
+        stack.push(root);
+        stack.push(root.val + "");
+
+        while (!stack.isEmpty()) {
+            String path = (String) stack.pop();
+            TreeNode node = (com.szh.algorithm.TreeNode) stack.pop();
+
+            // 判断是否是叶子节点
+            if (node.left == null && node.right == null) {
+                // 收集结果
+                res.add(path);
+            }
+
+            // 这样的话可以先收集左子树，再收集右子树，因为右子树先入栈。
+            if (node.right != null) {
+                stack.push(node.right);
+                stack.push(path + "->" + node.right.val);
+            }
+
+            if (node.left != null) {
+                stack.push(node.left);
+                stack.push(path + "->" + node.left.val);
+            }
+
+        }
+        return res;
     }
 
     public static void main(String[] args) {

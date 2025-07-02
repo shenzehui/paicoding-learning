@@ -1,28 +1,14 @@
-package com.szh.algorithm;
+package com.szh.algorithm.binaryTree;
+
+import com.szh.algorithm.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
 
+/**
+ * 513. 找树左下角的值
+ */
 public class FindBottomLeftValue {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode() {
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
 
     /**
      * 513. 找树左下角的值  迭代法实现

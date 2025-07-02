@@ -1,25 +1,8 @@
-package com.szh.algorithm;
+package com.szh.algorithm.binaryTree;
+
+import com.szh.algorithm.TreeNode;
 
 public class PathSum {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode() {
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
 
     public boolean hasPathSum(TreeNode root, int targetSum) {
         if (root == null) {

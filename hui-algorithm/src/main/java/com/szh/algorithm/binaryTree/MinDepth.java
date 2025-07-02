@@ -1,5 +1,7 @@
 package com.szh.algorithm.binaryTree;
 
+import com.szh.algorithm.TreeNode;
+
 import java.util.ArrayDeque;
 import java.util.Deque;
 
@@ -7,25 +9,6 @@ import java.util.Deque;
  * 111. 二叉树的最小深度
  */
 public class MinDepth {
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
 
     /**
      * 层序遍历，效率太低了

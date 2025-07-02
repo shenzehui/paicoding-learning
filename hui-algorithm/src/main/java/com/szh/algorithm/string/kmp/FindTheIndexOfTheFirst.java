@@ -1,14 +1,15 @@
-package com.szh.algorithm;
+package com.szh.algorithm.string.kmp;
+
 
 /**
- * Title:
- * Description:
- * Company: wondersgroup.com
- *
- * @author 沈泽辉
- * @version 1.0
+ * 找出字符串中第一个匹配项的下标
+ * <p>
+ * 思路：
+ * 1. 构建next数组
+ * 2. 双指针找到不相同字符索引下标
+ * 3. 根据Next数组获取下一个字符的匹配索引
+ * 4. 判断如果模式串遍历完毕，则返回模式串的起始索引
  */
-
 public class FindTheIndexOfTheFirst {
 
     /**
