@@ -1,9 +1,9 @@
-package com.szh.algorithm;
+package com.szh.algorithm.binaryTree;
+
+import com.szh.algorithm.TreeNode;
 
 /**
- * 二叉搜索树中两个节点的最近公共祖先
- *
- * @author szh
+ * 235. 二叉搜索树的最近公共祖先
  **/
 public class LowestCommonAncestorInSearchTree {
 

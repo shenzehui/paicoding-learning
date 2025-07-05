@@ -1,9 +1,9 @@
-package com.szh.algorithm;
+package com.szh.algorithm.binaryTree;
+
+import com.szh.algorithm.TreeNode;
 
 /**
- * 验证二叉搜索树
- *
- * @author szh
+ * 98. 验证二叉搜索树
  */
 public class IsValidBST {
 

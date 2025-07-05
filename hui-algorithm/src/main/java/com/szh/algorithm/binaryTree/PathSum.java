@@ -2,6 +2,9 @@ package com.szh.algorithm.binaryTree;
 
 import com.szh.algorithm.TreeNode;
 
+/**
+ * 112. 路径总和
+ */
 public class PathSum {
 
     public boolean hasPathSum(TreeNode root, int targetSum) {

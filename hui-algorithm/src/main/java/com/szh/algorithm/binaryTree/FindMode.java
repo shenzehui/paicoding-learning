@@ -1,13 +1,14 @@
-package com.szh.algorithm;
+package com.szh.algorithm.binaryTree;
+
+import com.szh.algorithm.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 二叉搜索树中的众数
+ * 501. 二叉搜索树中的众数
  */
 public class FindMode {
-
 
     int count = 1;
     int maxCount = 0;

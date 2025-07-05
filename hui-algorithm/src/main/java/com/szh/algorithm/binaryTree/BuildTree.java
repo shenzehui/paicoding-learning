@@ -1,35 +1,14 @@
-package com.szh.algorithm;
+package com.szh.algorithm.binaryTree;
+
+import com.szh.algorithm.TreeNode;
 
 import java.util.Arrays;
 
+/**
+ * 106. 从中序与后序遍历序列构造二叉树
+ */
 public class BuildTree {
 
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode() {
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
-
-    /**
-     * 从中序和后序遍历构造二叉树
-     *
-     * @param inorder
-     * @param postorder
-     * @return
-     */
     public TreeNode buildTree(int[] inorder, int[] postorder) {
         // 后续数组为空，返回空节点
         if (postorder.length == 0) {
