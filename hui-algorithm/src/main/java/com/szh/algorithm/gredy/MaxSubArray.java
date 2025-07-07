@@ -1,7 +1,7 @@
-package com.szh.algorithm;
+package com.szh.algorithm.gredy;
 
 /**
- * 最大子序列和
+ * 53. 最大子序和
  */
 public class MaxSubArray {
 

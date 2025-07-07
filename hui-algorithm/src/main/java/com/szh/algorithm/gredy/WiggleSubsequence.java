@@ -1,7 +1,7 @@
-package com.szh.algorithm;
+package com.szh.algorithm.gredy;
 
 /**
- * 摆动序列
+ * 376. 摆动序列
  */
 public class WiggleSubsequence {
 

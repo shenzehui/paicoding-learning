@@ -1,15 +1,10 @@
-package com.szh.algorithm;
+package com.szh.algorithm.gredy;
 
 /**
- * Title: 买卖股票的最佳时机 II
- * Description:
- * Company: wondersgroup.com
- *
- * @author 沈泽辉
- * @version 1.0
+ * 122.买卖股票的最佳时机II
  */
-
 public class BestTimeToBuyAndSellII {
+
     int result = 0;
 
     public int maxProfit(int[] prices) {

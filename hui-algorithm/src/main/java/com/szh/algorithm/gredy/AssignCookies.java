@@ -1,18 +1,9 @@
-package com.szh.algorithm;
-
-/**
- * Title:
- * Description:
- * Company: wondersgroup.com
- *
- * @author 沈泽辉
- * @version 1.0
- */
+package com.szh.algorithm.gredy;
 
 import java.util.Arrays;
 
 /**
- * 分发饼干
+ * 455. 分发饼干
  */
 public class AssignCookies {
 
