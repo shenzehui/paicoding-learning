@@ -59,6 +59,8 @@
         <module>130-single-spring</module>
         <module>131-dynamic-proxy</module>
         <module>132-dubbo</module>
+        <module>hui-algorithm</module>
+        <module>hui-components</module>
     </modules>
 
     <dependencies>
