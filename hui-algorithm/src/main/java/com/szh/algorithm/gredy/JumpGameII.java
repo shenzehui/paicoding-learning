@@ -1,14 +1,8 @@
-package com.szh.algorithm;
+package com.szh.algorithm.gredy;
 
 /**
- * Title: 跳跃游戏II
- * Description:
- * Company: wondersgroup.com
- *
- * @author 沈泽辉
- * @version 1.0
+ * 45. 跳跃游戏 II
  */
-
 public class JumpGameII {
 
     int cur = 0;

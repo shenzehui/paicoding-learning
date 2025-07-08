@@ -1,24 +1,14 @@
-package com.szh.algorithm;
-
-import com.sun.org.apache.xalan.internal.xsltc.dom.AbsoluteIterator;
+package com.szh.algorithm.gredy;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.stream.IntStream;
 
 /**
- * Title: K 次取反后最大化的数组和
- * Description:
- * Company: wondersgroup.com
- *
- * @author 沈泽辉
- * @version 1.0
+ * 1005. K 次取反后最大化的数组和
  */
-
 public class LargestSumAfterKNegations {
 
     public int largestSumAfterKNegations(int[] nums, int k) {
-
         nums = IntStream.of(nums)
                 .boxed()
                 .sorted((o1, o2) -> Math.abs(o2) - Math.abs(o1))

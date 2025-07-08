@@ -1,14 +1,8 @@
-package com.szh.algorithm;
+package com.szh.algorithm.gredy;
 
 /**
- * Title: 跳跃游戏
- * Description:
- * Company: wondersgroup.com
- *
- * @author 沈泽辉
- * @version 1.0
+ * 55. 跳跃游戏
  */
-
 public class JumpGame {
 
     int cover = 0;
@@ -22,6 +16,5 @@ public class JumpGame {
         }
         return false;
     }
-
 
 }

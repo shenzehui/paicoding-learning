@@ -1,7 +1,7 @@
-package com.szh.algorithm;
+package com.szh.algorithm.gredy;
 
 /**
- * 加油站
+ * 134. 加油站
  */
 public class GasStation {
 
