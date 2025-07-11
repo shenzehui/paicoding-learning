@@ -1,7 +1,7 @@
 package com.szh.algorithm.dp;
 
 /**
- * 309. 买卖股票的最佳时机含冷冻期.png
+ * 309. 买卖股票的最佳时机含冷冻期
  */
 public class BestTimeToBuyAndSellStockWithCooldown {
     public int maxProfit(int[] prices) {
@@ -40,8 +40,21 @@ public class BestTimeToBuyAndSellStockWithCooldown {
             dp[i][3] = dp[i - 1][2];
         }
 
+        // 打印dp数组
+        for (int[] dpInts : dp) {
+            for (int res : dpInts) {
+                System.out.print(res + ",");
+            }
+            System.out.println();
+        }
+
         return Math.max(dp[prices.length - 1][1], Math.max(dp[prices.length - 1][2], dp[prices.length - 1][3]));
 
+    }
+
+    public static void main(String[] args) {
+        BestTimeToBuyAndSellStockWithCooldown time = new BestTimeToBuyAndSellStockWithCooldown();
+        time.maxProfit(new int[]{1, 2, 3, 0, 2});
     }
 
 

@@ -5,18 +5,21 @@ package com.szh.algorithm.dp;
  */
 public class MaximumLengthOfRepeatedSubarray {
     public int findLength(int[] nums1, int[] nums2) {
-
         // dp数组含义：以nums1[i]和nums2[j]结尾的最长重复子数组的长度是dp[i][j]
         int[][] dp = new int[nums1.length][nums2.length];
 
+        int result = 0;
+
         // 初始化
         for (int i = 0; i < nums1.length; i++) {
-            for (int j = 0; j < nums2.length; j++) {
-                dp[i][j] = nums1[i] == nums2[j] ? 1 : 0;
-            }
+            dp[i][0] = nums1[i] == nums2[0] ? 1 : 0;
+            result = Math.max(dp[i][0],result);
         }
 
-        int result = 0;
+        for (int j = 0; j < nums2.length; j++) {
+            dp[0][j] = nums1[0] == nums2[j] ? 1 : 0;
+            result = Math.max(dp[0][j],result);
+        }
 
 
         // 递推公式：dp[i][j] = Math.max(dp[i][j],dp[i-1][j-1] + 1)
@@ -30,7 +33,6 @@ public class MaximumLengthOfRepeatedSubarray {
         }
 
         return result;
-
     }
 
     /**

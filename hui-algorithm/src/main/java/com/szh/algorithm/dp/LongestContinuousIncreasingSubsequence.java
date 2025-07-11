@@ -25,6 +25,14 @@ public class LongestContinuousIncreasingSubsequence {
             }
         }
 
+        for (int res : dp) {
+            System.out.print(res + " ");
+        }
+
         return result;
+    }
+
+    public static void main(String[] args) {
+        new LongestContinuousIncreasingSubsequence().findLengthOfLCIS(new int[]{1, 3, 5, 4, 7});
     }
 }

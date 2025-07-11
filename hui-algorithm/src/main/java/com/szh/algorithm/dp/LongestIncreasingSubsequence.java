@@ -26,6 +26,10 @@ public class LongestIncreasingSubsequence {
             }
         }
 
+        for (int res : dp) {
+            System.out.print(res + " ");
+        }
+
         return result;
     }
 

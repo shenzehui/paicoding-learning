@@ -37,7 +37,19 @@ public class BestTimeToBuyAndSellStockIV {
             }
         }
 
+        for (int[] ints : dp) {
+            for (int i : ints) {
+                System.out.print(i + ",");
+            }
+            System.out.println();
+        }
+
         return dp[prices.length - 1][2 * k];
+    }
+
+    public static void main(String[] args) {
+        BestTimeToBuyAndSellStockIV time = new BestTimeToBuyAndSellStockIV();
+        time.maxProfitDP(2, new int[]{3, 2, 6, 5, 0, 3});
     }
 
 }
