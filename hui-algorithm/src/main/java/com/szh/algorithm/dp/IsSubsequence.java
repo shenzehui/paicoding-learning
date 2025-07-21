@@ -23,8 +23,20 @@ public class IsSubsequence {
             }
         }
 
+        for (int[] dps : dp) {
+            for (int res : dps) {
+                System.out.print(res + " ");
+            }
+            System.out.println();
+        }
+
         return dp[s.length()][t.length()] == s.length();
 
+    }
+
+    public static void main(String[] args) {
+        IsSubsequence isSubsequence = new IsSubsequence();
+        isSubsequence.isSubsequence("ace", "abcde");
     }
 
 

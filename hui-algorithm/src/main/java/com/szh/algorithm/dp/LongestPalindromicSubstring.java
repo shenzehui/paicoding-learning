@@ -76,6 +76,13 @@ public class LongestPalindromicSubstring {
             }
         }
 
+        for (boolean[] dps : dp) {
+            for (boolean result : dps) {
+                System.out.print(result + " ");
+            }
+            System.out.println();
+        }
+
         return res;
     }
 
