@@ -1,12 +1,10 @@
-package com.szh.algorithm;
+package com.szh.algorithm.backtracking;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 复原 IP 地址
- *
- * @author szh
+ * 93. 复原IP地址
  */
 public class RestoreIpAddresses {
 

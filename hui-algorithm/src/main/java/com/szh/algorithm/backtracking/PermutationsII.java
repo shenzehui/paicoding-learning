@@ -1,12 +1,10 @@
-package com.szh.algorithm;
+package com.szh.algorithm.backtracking;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * 全排列II
- *
- * @author szh
  */
 public class PermutationsII {
 

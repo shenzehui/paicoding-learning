@@ -1,4 +1,4 @@
-package com.szh.algorithm;
+package com.szh.algorithm.backtracking;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,8 +6,6 @@ import java.util.List;
 
 /**
  * 40. 组合总和 II
- *
- * @author szh
  */
 public class CombinationSum2 {
 

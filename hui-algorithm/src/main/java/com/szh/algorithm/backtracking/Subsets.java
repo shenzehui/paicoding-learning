@@ -1,10 +1,10 @@
-package com.szh.algorithm;
+package com.szh.algorithm.backtracking;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 子集
+ * 78. 子集
  */
 public class Subsets {
 

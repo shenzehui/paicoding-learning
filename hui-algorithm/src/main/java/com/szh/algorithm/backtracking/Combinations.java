@@ -1,12 +1,10 @@
-package com.szh.algorithm;
+package com.szh.algorithm.backtracking;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 组合
- *
- * @author szh
+ * 77. 组合
  */
 public class Combinations {
 
