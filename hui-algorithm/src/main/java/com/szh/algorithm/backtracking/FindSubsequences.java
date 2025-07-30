@@ -1,4 +1,4 @@
-package com.szh.algorithm;
+package com.szh.algorithm.backtracking;
 
 import java.util.ArrayList;
 import java.util.HashSet;

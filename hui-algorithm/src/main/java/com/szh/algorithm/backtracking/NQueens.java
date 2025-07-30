@@ -1,11 +1,11 @@
-package com.szh.algorithm;
+package com.szh.algorithm.backtracking;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 /**
- * N皇后
+ * 51. N皇后
  */
 public class NQueens {
 

@@ -1,20 +1,18 @@
-package com.szh.algorithm;
+package com.szh.algorithm.backtracking;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 全排列II
- *
- * @author szh
+ * 46.全排列
  */
-public class PermutationsII {
+public class Permutations {
 
     List<Integer> path = new ArrayList<>();
 
     List<List<Integer>> result = new ArrayList<>();
 
-    public List<List<Integer>> permuteUnique(int[] nums) {
+    public List<List<Integer>> permute(int[] nums) {
         backTracking(nums, new int[nums.length]);
         return result;
     }
@@ -25,21 +23,10 @@ public class PermutationsII {
             return;
         }
 
-//        Set<Integer> set = new HashSet<>();
-
         for (int i = 0; i < nums.length; i++) {
-            // 树枝去重
-//            if (i > 0 && nums[i] == nums[i - 1] && used[i - 1] == 1) {
-//                continue;
-//            }
-            // 树层去重
-            if (i > 0 && nums[i] == nums[i - 1] && used[i - 1] == 0) {
-                continue;
-            }
             if (used[i] == 1) {
                 continue;
             }
-//            set.add(nums[i]);
             used[i] = 1;
             path.add(nums[i]);
             backTracking(nums, used);
@@ -49,10 +36,9 @@ public class PermutationsII {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1, 1, 2};
-        PermutationsII permutationsII = new PermutationsII();
-        List<List<Integer>> result = permutationsII.permuteUnique(nums);
+        int[] nums = {1, 2, 3};
+        Permutations permutations = new Permutations();
+        List<List<Integer>> result = permutations.permute(nums);
         System.out.println(result);
     }
-
 }

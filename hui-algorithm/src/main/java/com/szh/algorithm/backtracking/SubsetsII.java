@@ -1,18 +1,20 @@
-package com.szh.algorithm;
+package com.szh.algorithm.backtracking;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
- * 子集
+ * 90.子集II
  */
-public class Subsets {
+public class SubsetsII {
 
     List<Integer> path = new ArrayList<>();
 
     List<List<Integer>> result = new ArrayList<>();
 
-    public List<List<Integer>> subsets(int[] nums) {
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
+        Arrays.sort(nums);
         backTracking(nums, 0);
         return result;
     }
@@ -25,6 +27,10 @@ public class Subsets {
 
         for (int i = startIndex; i < nums.length; i++) {
             int num = nums[i];
+            // 树层去重
+            if (i > startIndex && nums[i] == nums[i - 1]) {
+                continue;
+            }
             path.add(num);
             backTracking(nums, i + 1);
             path.remove(path.size() - 1);
@@ -32,9 +38,9 @@ public class Subsets {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1, 2, 3};
-        Subsets subsets = new Subsets();
-        List<List<Integer>> result = subsets.subsets(nums);
+        int[] nums = {1, 2, 2};
+        SubsetsII subsetsII = new SubsetsII();
+        List<List<Integer>> result = subsetsII.subsetsWithDup(nums);
         System.out.println(result);
     }
 }

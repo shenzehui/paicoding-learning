@@ -1,12 +1,10 @@
-package com.szh.algorithm;
+package com.szh.algorithm.backtracking;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 回文分割
- *
- * @author szh
+ * 131. 分割回文串
  */
 public class PalindromePartitioning {
 

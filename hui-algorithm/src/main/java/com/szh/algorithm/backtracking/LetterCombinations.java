@@ -1,12 +1,10 @@
-package com.szh.algorithm;
+package com.szh.algorithm.backtracking;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 电话号码的字母组合
- *
- * @author szh
+ * 17. 电话号码的字母组合
  */
 public class LetterCombinations {
 
