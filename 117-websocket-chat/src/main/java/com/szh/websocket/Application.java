@@ -26,12 +26,13 @@ public class Application {
     private SimpMessagingTemplate simpMessagingTemplate;
 
     public static void main(String[] args) {
-        // todo 未完成
         SpringApplication.run(Application.class, args);
     }
 
+    public static final String GLOBAL_CHANNEL = "globalChannel";
+
     /**
-     * 服务端，像订阅了 /topic/hello 的连接端主动发送消息
+     * 服务端
      *
      * @throws IOException
      */
@@ -39,7 +40,7 @@ public class Application {
     public void sc1() throws IOException {
         String rspMsg = Thread.currentThread().getName() + " 自动返回 | sc1：" + LocalDateTime.now();
         // 后端主动给前端发送消息
-        simpMessagingTemplate.convertAndSend("/topic/hello", rspMsg);
+        simpMessagingTemplate.convertAndSend("/topic/chat/" + GLOBAL_CHANNEL, rspMsg);
     }
 
 }

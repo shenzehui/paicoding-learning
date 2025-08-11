@@ -1,11 +1,12 @@
 package com.szh.websocket.config;
 
+import com.szh.websocket.interceptor.AuthHandshakeInterceptor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
-
 
 /**
  * 1. 定义端点： registerStompEndpoints()
@@ -43,6 +44,16 @@ public class StompConfiguration implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         // Endpoint指定了客户端建立连接时的请求地址
-        registry.addEndpoint("/ws/hello").withSockJS();
+
+        // 这个端点并不是一个固定的值，最后一个{channel}是一个变量。可以理解为聊天群，不同聊天群中的信息是相互隔离的，不会出现串频的情况。
+        registry.addEndpoint("/ws/chat/{channel}")
+                // 设置拦截器，从cookie中识别登录用户
+                .addInterceptors(authHandshakeInterceptor())
+                .withSockJS();
+    }
+
+    @Bean
+    public AuthHandshakeInterceptor authHandshakeInterceptor() {
+        return new AuthHandshakeInterceptor();
     }
 }
