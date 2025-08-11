@@ -3,21 +3,33 @@ package com.szh.websocket.rest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
-import java.time.LocalDateTime;
 
 @Controller
 public class ChatController {
 
     @Autowired
     private UserService userService;
+
+    @GetMapping(path = "/")
+    public String index(Model model) {
+        model.addAttribute("uname", userService.getUsernameByCookie());
+        return "index";
+    }
+
+    @GetMapping(path = "/view/{chat}")
+    public String chat(@PathVariable String chat, Model modelAttribute) {
+        modelAttribute.addAttribute("uname", userService.getUsernameByCookie());
+        return chat;
+    }
 
     private static final int COOKIE_AGE = 30 * 86400;
 

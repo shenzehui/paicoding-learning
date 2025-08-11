@@ -1,8 +1,11 @@
 package com.szh.websocket.config;
 
 import com.szh.websocket.interceptor.AuthHandshakeInterceptor;
+import com.szh.websocket.interceptor.SocketInChannelInterceptor;
+import com.szh.websocket.interceptor.SocketOutChannelInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.messaging.simp.config.ChannelRegistration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
@@ -47,6 +50,7 @@ public class StompConfiguration implements WebSocketMessageBrokerConfigurer {
 
         // 这个端点并不是一个固定的值，最后一个{channel}是一个变量。可以理解为聊天群，不同聊天群中的信息是相互隔离的，不会出现串频的情况。
         registry.addEndpoint("/ws/chat/{channel}")
+                .setHandshakeHandler(new AuthHandshakeHandler())
                 // 设置拦截器，从cookie中识别登录用户
                 .addInterceptors(authHandshakeInterceptor())
                 .withSockJS();
@@ -55,5 +59,28 @@ public class StompConfiguration implements WebSocketMessageBrokerConfigurer {
     @Bean
     public AuthHandshakeInterceptor authHandshakeInterceptor() {
         return new AuthHandshakeInterceptor();
+    }
+
+    /**
+     * 定义接收客户端发送消息的拦截器
+     *
+     * @param registration
+     */
+    @Override
+    public void configureClientInboundChannel(ChannelRegistration registration) {
+        // 配置线程连接参数
+        registration.taskExecutor().corePoolSize(4).maxPoolSize(4).queueCapacity(100).keepAliveSeconds(60);
+        // 配置拦截器
+        registration.interceptors(new SocketInChannelInterceptor());
+    }
+
+    /**
+     * 定义后端返回消息给客户端的拦截器
+     *
+     * @param registration
+     */
+    @Override
+    public void configureClientOutboundChannel(ChannelRegistration registration) {
+        registration.interceptors(new SocketOutChannelInterceptor());
     }
 }

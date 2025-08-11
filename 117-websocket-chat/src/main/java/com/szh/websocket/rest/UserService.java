@@ -58,4 +58,17 @@ public class UserService {
         return null;
     }
 
+    @Scheduled(fixedRate = 3000)
+    public void autoSendMsgToUser() {
+        userCache.keySet().forEach(uname -> {
+            log.info("用户广播消息: {}", uname);
+            WsAnswerHelper.publish(uname, "/topic/notify", String.format("【%s】当前时间: %s", uname, LocalDateTime.now()));
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        });
+    }
+
 }
