@@ -1,11 +1,9 @@
-package com.szh.algorithm;
+package com.szh.algorithm.gredy;
 
 /**
  * 柠檬水找零
  * <p>
  * 简单题！！
- *
- * @author szh
  **/
 public class LemonadeChange {
     public boolean lemonadeChange(int[] bills) {

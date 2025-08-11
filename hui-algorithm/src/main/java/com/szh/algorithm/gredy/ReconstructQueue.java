@@ -1,17 +1,11 @@
-package com.szh.algorithm;
+package com.szh.algorithm.gredy;
 
 import java.util.Arrays;
 import java.util.LinkedList;
 
 /**
- * Title: 根据身高重建队列
- * Description:
- * Company: wondersgroup.com
- *
- * @author 沈泽辉
- * @version 1.0
+ * 406. 根据身高重建队列
  */
-
 public class ReconstructQueue {
 
     public int[][] reconstructQueue(int[][] people) {

@@ -1,16 +1,11 @@
-package com.szh.algorithm;
+package com.szh.algorithm.gredy;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 /**
- * Title: 合并区间
- * Description:
- * Company: wondersgroup.com
- *
- * @author 沈泽辉
- * @version 1.0
+ * 56. 合并区间
  */
 
 public class MergeIntervals {
@@ -40,10 +35,6 @@ public class MergeIntervals {
         res.add(new int[]{start, end});
 
         return res.toArray(new int[res.size()][]);
-    }
-
-    public static void main(String[] args) {
-
     }
 
 }

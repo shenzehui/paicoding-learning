@@ -1,16 +1,10 @@
-package com.szh.algorithm;
+package com.szh.algorithm.gredy;
 
 import java.util.Arrays;
 
 /**
- * Title:无重叠区间
- * Description:
- * Company: wondersgroup.com
- *
- * @author 沈泽辉
- * @version 1.0
+ * 435. 无重叠区间
  */
-
 public class EraseOverlapIntervals {
 
     public int eraseOverlapIntervals(int[][] intervals) {

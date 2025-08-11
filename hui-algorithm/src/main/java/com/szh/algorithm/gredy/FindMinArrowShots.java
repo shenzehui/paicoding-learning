@@ -1,16 +1,10 @@
-package com.szh.algorithm;
+package com.szh.algorithm.gredy;
 
 import java.util.Arrays;
 
 /**
- * Title: 用最少数量的箭引爆气球
- * Description:
- * Company: wondersgroup.com
- *
- * @author 沈泽辉
- * @version 1.0
+ * 452. 用最少数量的箭引爆气球
  */
-
 public class FindMinArrowShots {
     public int findMinArrowShots(int[][] points) {
 
@@ -25,13 +19,12 @@ public class FindMinArrowShots {
                 count++;
             } else {
                 // 更新重叠气球最小右边界(i的右边界)
-                points[i][0] = Math.min(points[i - 1][1], points[i][1]);
+                points[i][1] = Math.min(points[i - 1][1], points[i][1]);
             }
         }
 
         return count;
 
     }
-
 
 }

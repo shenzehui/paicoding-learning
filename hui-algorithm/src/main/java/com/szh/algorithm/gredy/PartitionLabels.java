@@ -1,17 +1,11 @@
-package com.szh.algorithm;
+package com.szh.algorithm.gredy;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Title: 划分字母区间
- * Description:
- * Company: wondersgroup.com
- *
- * @author 沈泽辉
- * @version 1.0
+ * 763. 划分字母区间
  */
-
 public class PartitionLabels {
     public List<Integer> partitionLabels(String s) {
 

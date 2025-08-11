@@ -1,11 +1,7 @@
-package com.szh.algorithm;
+package com.szh.algorithm.gredy;
 
 /**
  * 135. 分发糖果
- * <p>
- * 这道题目一定是要确定一边之后，再确定另一边，例如比较每一个孩子的左边，然后再比较右边，如果两边一起考虑一定会顾此失彼。
- * <p>
- * 这种思路可以以后可以参考下
  */
 public class Candy {
     public int candy(int[] ratings) {
