@@ -8,6 +8,7 @@
     <modules>
         <module>java-agent-demo-01</module>
         <module>java-agent-demo-02</module>
+        <module>java-agent-demo-03</module>
     </modules>
 
     <modelVersion>4.0.0</modelVersion>
