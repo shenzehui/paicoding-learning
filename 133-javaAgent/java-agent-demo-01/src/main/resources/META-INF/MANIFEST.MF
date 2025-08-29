@@ -1,4 +1,3 @@
 Manifest-Version: 1.0
 Premain-Class: com.szh.agent.MyAgent
 Can-Redefine-Classes: true
-
