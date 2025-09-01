@@ -11,6 +11,7 @@
         <module>java-agent-demo-03</module>
         <module>java-agent-demo-04</module>
         <module>java-agent-demo-05</module>
+        <module>java-agent-demo-06</module>
     </modules>
 
     <modelVersion>4.0.0</modelVersion>
