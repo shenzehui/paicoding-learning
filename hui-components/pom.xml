@@ -9,6 +9,7 @@
     <modules>
         <module>trace-watch-tools</module>
         <module>trace-watch-tools-spring</module>
+        <module>whitelist-spring-boot-starter</module>
     </modules>
 
     <name>hui-components</name>
