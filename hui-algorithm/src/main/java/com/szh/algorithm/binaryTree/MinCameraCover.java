@@ -1,14 +1,11 @@
-package com.szh.algorithm;
+package com.szh.algorithm.binaryTree;
+
+import com.szh.algorithm.TreeNode;
+
 
 /**
- * Title: 监控二叉树
- * Description:
- * Company: wondersgroup.com
- *
- * @author 沈泽辉
- * @version 1.0
+ * 968. 监控二叉树
  */
-
 public class MinCameraCover {
     public int minCameraCover(TreeNode root) {
         int state = travesal(root);

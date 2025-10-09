@@ -1,34 +1,14 @@
-package com.szh.algorithm;
+package com.szh.algorithm.binaryTree;
+
+import com.szh.algorithm.TreeNode;
 
 import java.util.Arrays;
 
+/**
+ * 654. 最大二叉树
+ */
 public class ConstructMaximumBinaryTree {
 
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode() {
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
-
-    /**
-     * 最大二叉树
-     *
-     * @param nums
-     * @return
-     */
     public TreeNode construct(int[] nums) {
         // 叶子节点，直接返回
         if (nums.length == 1) {

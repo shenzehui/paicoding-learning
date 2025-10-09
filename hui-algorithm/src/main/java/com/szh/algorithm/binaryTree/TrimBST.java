@@ -1,4 +1,6 @@
-package com.szh.algorithm;
+package com.szh.algorithm.binaryTree;
+
+import com.szh.algorithm.TreeNode;
 
 /**
  * 669. 修剪二叉搜索树

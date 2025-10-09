@@ -1,9 +1,9 @@
-package com.szh.algorithm;
+package com.szh.algorithm.binaryTree;
+
+import com.szh.algorithm.TreeNode;
 
 /**
- * 二叉搜索树中的插入操作
- *
- * @author szh
+ * 701. 二叉搜索树中的插入操作
  **/
 public class InsertIntoBST {
 

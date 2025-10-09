@@ -1,13 +1,12 @@
-package com.szh.algorithm;
+package com.szh.algorithm.binaryTree;
 
+import com.szh.algorithm.TreeNode;
+
+/**
+ * 108. 将有序数组转换为二叉搜索树
+ */
 public class SortedArrayToBST {
 
-    /**
-     * 108. 将有序数组转换为二叉搜索树
-     *
-     * @param nums
-     * @return
-     */
     public TreeNode sortedArrayToBST(int[] nums) {
         return traversal(nums, 0, nums.length - 1);
     }

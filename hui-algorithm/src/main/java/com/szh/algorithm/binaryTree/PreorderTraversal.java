@@ -1,4 +1,4 @@
-package com.szh.algorithm;
+package com.szh.algorithm.binaryTree;
 
 import java.util.ArrayList;
 import java.util.List;

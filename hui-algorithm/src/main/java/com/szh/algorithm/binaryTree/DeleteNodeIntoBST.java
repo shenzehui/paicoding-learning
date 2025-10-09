@@ -1,9 +1,9 @@
-package com.szh.algorithm;
+package com.szh.algorithm.binaryTree;
+
+import com.szh.algorithm.TreeNode;
 
 /**
- * 删除二叉搜索树中的节点
- *
- * @author szh
+ * 450. 删除二叉搜索树中的节点
  **/
 public class DeleteNodeIntoBST {
 

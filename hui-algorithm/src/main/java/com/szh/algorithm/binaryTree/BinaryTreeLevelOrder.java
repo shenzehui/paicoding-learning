@@ -1,34 +1,14 @@
-package com.szh.algorithm;
+package com.szh.algorithm.binaryTree;
+
+import com.szh.algorithm.TreeNode;
 
 import java.util.*;
 
+/**
+ * 102. 二叉树的层序遍历
+ */
 public class BinaryTreeLevelOrder {
 
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode() {
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
-
-    /**
-     * 102. 二叉树的层序遍历
-     *
-     * @param root
-     * @return
-     */
     public List<List<Integer>> levelOrder(TreeNode root) {
         // 定义一个队列
         if (root == null) {

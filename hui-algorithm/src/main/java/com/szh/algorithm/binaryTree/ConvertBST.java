@@ -1,7 +1,9 @@
-package com.szh.algorithm;
+package com.szh.algorithm.binaryTree;
+
+import com.szh.algorithm.TreeNode;
 
 /**
- * 把二叉搜索树转换为累加树
+ * 538. 把二叉搜索树转换为累加树
  */
 public class ConvertBST {
 
