@@ -60,6 +60,7 @@
         <module>131-dynamic-proxy</module>
         <module>132-dubbo</module>
         <module>133-javaAgent</module>
+        <module>134-demo-maven-plugin</module>
         <module>hui-algorithm</module>
         <module>hui-components</module>
     </modules>
