@@ -63,6 +63,7 @@
         <module>134-demo-maven-plugin</module>
         <module>hui-algorithm</module>
         <module>hui-components</module>
+        <module>task-engine</module>
     </modules>
 
     <dependencies>
